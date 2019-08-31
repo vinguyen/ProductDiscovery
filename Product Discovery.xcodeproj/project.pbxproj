@@ -20,6 +20,7 @@
 		3B6A9F7D231A306600A4F90E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6A9F77231A306600A4F90E /* RxSwift.framework */; };
 		3B6A9F7E231A306600A4F90E /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6A9F78231A306600A4F90E /* SVProgressHUD.framework */; };
 		3B6A9F7F231A306600A4F90E /* Sync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6A9F79231A306600A4F90E /* Sync.framework */; };
+		3B6A9FA5231A407900A4F90E /* SwiftLintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A9F95231A349700A4F90E /* SwiftLintTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,13 @@
 		3B6A9F77231A306600A4F90E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		3B6A9F78231A306600A4F90E /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		3B6A9F79231A306600A4F90E /* Sync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sync.framework; path = Carthage/Build/iOS/Sync.framework; sourceTree = "<group>"; };
+		3B6A9F93231A349700A4F90E /* SwiftLint.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLint.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B6A9F95231A349700A4F90E /* SwiftLintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLintTests.swift; sourceTree = "<group>"; };
+		3B6A9F97231A349700A4F90E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B6A9F9B231A352300A4F90E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		3B6A9F9E231A353E00A4F90E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		3B6A9F9F231A353E00A4F90E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		3B6A9FA0231A353E00A4F90E /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3B6A9F90231A349700A4F90E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +96,7 @@
 			children = (
 				3B6A9F4E231A235000A4F90E /* Product Discovery */,
 				3B6A9F66231A235200A4F90E /* Product DiscoveryTests */,
+				3B6A9F94231A349700A4F90E /* SwiftLint */,
 				3B6A9F4D231A235000A4F90E /* Products */,
 				3B6A9F73231A306600A4F90E /* Frameworks */,
 			);
@@ -91,6 +107,7 @@
 			children = (
 				3B6A9F4C231A235000A4F90E /* Product Discovery.app */,
 				3B6A9F63231A235200A4F90E /* Product DiscoveryTests.xctest */,
+				3B6A9F93231A349700A4F90E /* SwiftLint.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +146,27 @@
 				3B6A9F79231A306600A4F90E /* Sync.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B6A9F94231A349700A4F90E /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				3B6A9F9D231A353E00A4F90E /* SwiftLint */,
+				3B6A9F9B231A352300A4F90E /* .swiftlint.yml */,
+				3B6A9F95231A349700A4F90E /* SwiftLintTests.swift */,
+				3B6A9F97231A349700A4F90E /* Info.plist */,
+			);
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		3B6A9F9D231A353E00A4F90E /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				3B6A9F9E231A353E00A4F90E /* LICENSE */,
+				3B6A9F9F231A353E00A4F90E /* README.txt */,
+				3B6A9FA0231A353E00A4F90E /* swiftlint */,
+			);
+			path = SwiftLint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +208,24 @@
 			productReference = 3B6A9F63231A235200A4F90E /* Product DiscoveryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3B6A9F92231A349700A4F90E /* SwiftLint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B6A9F98231A349700A4F90E /* Build configuration list for PBXNativeTarget "SwiftLint" */;
+			buildPhases = (
+				3B6A9F8F231A349700A4F90E /* Sources */,
+				3B6A9F90231A349700A4F90E /* Frameworks */,
+				3B6A9F91231A349700A4F90E /* Resources */,
+				3B6A9FA4231A354700A4F90E /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+			productReference = 3B6A9F93231A349700A4F90E /* SwiftLint.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -186,6 +242,9 @@
 					3B6A9F62231A235200A4F90E = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 3B6A9F4B231A235000A4F90E;
+					};
+					3B6A9F92231A349700A4F90E = {
+						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
@@ -204,6 +263,7 @@
 			targets = (
 				3B6A9F4B231A235000A4F90E /* Product Discovery */,
 				3B6A9F62231A235200A4F90E /* Product DiscoveryTests */,
+				3B6A9F92231A349700A4F90E /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -220,6 +280,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3B6A9F61231A235200A4F90E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B6A9F91231A349700A4F90E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +320,24 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
+		3B6A9FA4231A354700A4F90E /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eo pipefail\n\nBINARY_PATH=\"$SRCROOT/SwiftLint/SwiftLint/swiftlint\"\nCONFIG_PATH=\"$SRCROOT/SwiftLint/.swiftlint.yml\"\n\n\"$BINARY_PATH\" --config \"$CONFIG_PATH\" --strict | sed 's/warning:/error:/g'\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -271,6 +356,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6A9F68231A235200A4F90E /* Product_DiscoveryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B6A9F8F231A349700A4F90E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B6A9FA5231A407900A4F90E /* SwiftLintTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,7 +573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "vi.com.demo.Product-DiscoveryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Product Discovery.app/Product Discovery";
 			};
@@ -500,9 +593,45 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "vi.com.demo.Product-DiscoveryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Product Discovery.app/Product Discovery";
+			};
+			name = Release;
+		};
+		3B6A9F99231A349700A4F90E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KT66PK2Y26;
+				INFOPLIST_FILE = SwiftLint/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vi.com.demo.SwiftLint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B6A9F9A231A349700A4F90E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KT66PK2Y26;
+				INFOPLIST_FILE = SwiftLint/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vi.com.demo.SwiftLint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -532,6 +661,15 @@
 			buildConfigurations = (
 				3B6A9F70231A235200A4F90E /* Debug */,
 				3B6A9F71231A235200A4F90E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B6A9F98231A349700A4F90E /* Build configuration list for PBXNativeTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B6A9F99231A349700A4F90E /* Debug */,
+				3B6A9F9A231A349700A4F90E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

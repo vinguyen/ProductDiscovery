@@ -1,0 +1,54 @@
+# Only whitelist rules are checked.
+# Detail description with examples: https://github.com/realm/SwiftLint/blob/master/Rules.md
+whitelist_rules:
+    - block_based_kvo
+    - control_statement
+    - custom_rules
+    - deployment_target
+    - discarded_notification_center_observer
+    - discouraged_direct_init
+    - duplicate_imports
+    - empty_parameters
+    - empty_parentheses_with_trailing_closure
+    - fatal_error_message
+    - force_cast
+    - force_try
+    - inert_defer
+    - is_disjoint
+    - legacy_cggeometry_functions
+    - legacy_constant
+    - legacy_constructor
+    - legacy_nsgeometry_functions
+    - line_length
+    - mark
+    - operator_whitespace
+    - private_unit_test
+    - protocol_property_accessors_order
+    - redundant_objc_attribute
+    - redundant_set_access_control
+    - redundant_void_return
+    - return_arrow_whitespace
+    - shorthand_operator
+    - statement_position
+    - switch_case_alignment
+    - trailing_semicolon
+    - unneeded_break_in_switch
+    - valid_ibinspectable
+    - vertical_parameter_alignment
+    - void_return
+    - weak_computed_property
+
+
+
+# Project pathes for validation
+included:
+    - Product Discovery
+    - Product DiscoveryTests
+
+
+########## RULES CUSTOMIZATION ##########
+line_length:
+    warning: 120
+    error: 120
+    ignores_urls: true
+    ignores_interpolated_strings: true
