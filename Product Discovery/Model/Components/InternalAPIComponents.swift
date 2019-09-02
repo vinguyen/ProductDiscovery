@@ -13,7 +13,7 @@ typealias JSONArray = [Any]
 
 enum InternalAPIRoute {
     case productsList
-    case productDetail
+    case productDetail(sku: String)
     
     var baseURL: String {
         return Bundle.main.baseURL
@@ -22,7 +22,7 @@ enum InternalAPIRoute {
     var path: String {
         switch self {
         case .productsList: return baseURL + "/api/search"
-        case .productDetail: return baseURL + "/api/products"
+        case .productDetail(let sku): return baseURL + "/api/products/\(sku)"
         }
     }
     
@@ -36,6 +36,7 @@ enum InternalAPIError: Error,  LocalizedError {
     case failedResponseParsing
     case failedToConductURLRequest
     case failedToFetchProductsList
+    case failedToFetchProductDetails
     
     var errorDescription: String? {
         switch self {
@@ -47,6 +48,8 @@ enum InternalAPIError: Error,  LocalizedError {
             return "Could not conduct an URL request."
         case .failedToFetchProductsList:
             return "Error to fetch products list, please try again later!"
+        case .failedToFetchProductDetails:
+            return "Error to fetch product detail, pleaase try again later!"
         }
     }
 }

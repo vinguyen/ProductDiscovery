@@ -22,7 +22,7 @@
         <!--Products List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ProductsListViewController" customModule="Product_Discovery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ProductsListViewController" customModule="Product_Discovery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,11 +166,20 @@
                     <connections>
                         <outlet property="loadingIndicator" destination="4gb-bj-vYc" id="Aya-Fs-YFa"/>
                         <outlet property="tableView" destination="m14-H6-MFb" id="vJl-lf-ORY"/>
+                        <segue destination="BMz-No-FMm" kind="show" identifier="ProductDetailsViewController" id="oo7-At-OeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="782.8125"/>
+        </scene>
+        <!--ProductDetailsViewController-->
+        <scene sceneID="Nka-NE-zNH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductDetailsViewController" id="BMz-No-FMm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8e-Fo-Bos" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4EC-NJ-WIo">

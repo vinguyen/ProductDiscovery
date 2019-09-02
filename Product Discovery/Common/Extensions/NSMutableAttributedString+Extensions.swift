@@ -27,4 +27,10 @@ extension NSMutableAttributedString {
         setAttributes([.font : UIFont.SFProTextSemiBold(ofSize: size)], range: range)
         return self
     }
+    
+    @discardableResult func setColor(`for` text: String, color: UIColor) -> NSMutableAttributedString {
+        let range = (self.string as NSString).range(of: text)
+        setAttributes([.foregroundColor : color], range: range)
+        return self
+    }
 }

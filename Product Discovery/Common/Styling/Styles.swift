@@ -40,3 +40,7 @@ struct Gradient {
         return image.resizableImage(withCapInsets: .zero, resizingMode: .stretch)
     }()
 }
+
+struct Color {
+    static let deepSkyBlue = UIColor(red: 30/255, green: 117/255, blue: 246/255,alpha: 1.0)
+}

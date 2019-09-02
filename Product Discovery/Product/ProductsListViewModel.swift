@@ -70,6 +70,7 @@ class ProductsListViewModel: BaseViewModel {
     
     private func initialize() {
         productsFetchedResultsController.delegate = self
+        fetchProducts()
         onFetchRequest
             .do(onNext: { [weak _isLoading] _ in
                 _isLoading?.value = true
@@ -95,7 +96,6 @@ class ProductsListViewModel: BaseViewModel {
                     return
                 }
                 self.isLastPage = isLastPage
-                self.fetchProducts()
             })
             .disposed(by: disposeBag)
     }

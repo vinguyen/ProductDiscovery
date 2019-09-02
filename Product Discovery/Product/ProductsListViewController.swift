@@ -81,6 +81,9 @@ class ProductsListViewController: UIViewController {
             .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe(onNext: { [unowned self] query in
+                if query.isEmpty {
+                    self.searchBar.resignFirstResponder()
+                }
                 self.tableView.scrollToTop(animated: false)
                 self.viewModel.loadFirstPage(query: query)
             })
@@ -90,10 +93,13 @@ class ProductsListViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNeedsStatusBarAppearanceUpdate()
         navigationController?.navigationBar.setBackgroundImage(Gradient.main, for: .default)
+        navigationController?.navigationBar.barStyle = .black
+        extendedLayoutIncludesOpaqueBars = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -125,6 +131,17 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let productItem = viewModel.productItem(at: indexPath),
+            let detailViewController =  UIStoryboard(name: ProductDetailsViewController.identifier,
+                                                     bundle: .main
+                                                    ).instantiateInitialViewController() as? ProductDetailsViewController else { return }
+        let productDetailsViewModel = ProductDetailsViewModel(
+                                        productManager: ManagerProvider.sharedInstance.productManager,
+                                        dataManager: ManagerProvider.sharedInstance.dataManager,
+                                        productItem: productItem
+                                    )
+        detailViewController.setup(with: productDetailsViewModel)
+        navigationController?.pushViewController(detailViewController, animated: true)
         
     }
     

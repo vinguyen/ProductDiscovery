@@ -3,3 +3,4 @@ github "Alamofire/Alamofire" == 4.8.2
 github "Alamofire/AlamofireImage" == 3.5.2
 github "SyncDB/Sync" == 4.2.1
 github "SVProgressHUD/SVProgressHUD" == 2.2.5
+github "zvonicek/ImageSlideshow"

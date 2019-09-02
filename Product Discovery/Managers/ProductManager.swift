@@ -18,7 +18,7 @@ protocol ProductManager {
                            page: Int,
                            limit: Int,
                            deleteOld: Bool) -> Observable<Bool>
-    func fetchProductDetails(productSKU: String, completion: @escaping (Result<Void>) -> Void)
+    func fetchProductDetails(productItem: Product) -> Observable<Void>
 }
 
 class ProductManagerImpl: ProductManager {
@@ -113,8 +113,59 @@ class ProductManagerImpl: ProductManager {
         }
     }
     
-    func fetchProductDetails(productSKU: String, completion: @escaping (Result<Void>) -> Void) {
-        
+    func fetchProductDetails(productItem: Product) -> Observable<Void> {
+        return Observable<Void>.create { event in
+            guard let productDetailURL = InternalAPIRoute.productDetail(sku: productItem.sku).url else {
+                event.onError(InternalAPIError.failedToConductURLRequest)
+                return Disposables.create()
+            }
+            
+            self.internalAPIControlManager.performNonAuthRequest(
+                with: productDetailURL,
+                method: .get,
+                parameters: nil,
+                headers: nil
+            ) { result in
+                switch result {
+                case .success(let response):
+                    if response.code == InternalAPIContants.successCode,
+                        let data = response.result as? JSONDictionary,
+                        let product = data["product"] as? JSONDictionary {
+                        var patchedContent = JSONDictionary()
+                        patchedContent["id"] = productItem.id
+                        patchedContent["displayName"] = product["name"]
+                        patchedContent["sku"] = productItem.sku
+                        patchedContent["totalAvailable"] = product["totalAvailable"]
+                        patchedContent["price"] = (product["price"] as? JSONDictionary)?["sellPrice"] ?? 0
+                        patchedContent["images"] = product["images"]
+                        patchedContent["discountPrice"] = ((product["promotionPrices"] as? JSONArray)?
+                            .first as? JSONDictionary)?["promotionPrice"] ?? 0
+                        patchedContent["categorieName"] = ((product["categories"] as? JSONArray)?
+                            .first as? JSONDictionary)?["name"]
+                         patchedContent["attributeGroups"] = product["attributeGroups"]
+                        
+                        let operations: Sync.OperationOptions = [.update]
+                        
+                        Sync.changes([patchedContent],
+                                     inEntityNamed: "Product",
+                                     dataStack: self.dataManager.dataStack,
+                                     operations: operations)
+                        { error in
+                            if error == nil {
+                                    event.onCompleted()
+                            } else {
+                                event.onError(InternalAPIError.failedToFetchProductDetails)
+                            }
+                        }
+                    } else {
+                        event.onError(InternalAPIError.failedToFetchProductDetails)
+                    }
+                case .failure(_):
+                    event.onError(InternalAPIError.failedToFetchProductDetails)
+                }
+            }
+            return Disposables.create()
+        }
     }
 }
 

@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2D0394231D55E700E19268 /* ImageSlideshow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2D0393231D55E700E19268 /* ImageSlideshow.framework */; };
+		3B2D0396231D5DB500E19268 /* AlamofireSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D0395231D5DB500E19268 /* AlamofireSource.swift */; };
+		3B2D0399231D696D00E19268 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D0398231D696D00E19268 /* UIView+Extensions.swift */; };
 		3B5E7953231CC9AB00B393B2 /* NumberFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E7952231CC9AB00B393B2 /* NumberFormatter+Extensions.swift */; };
 		3B5E7955231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E7954231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift */; };
 		3B5E7957231CCD6200B393B2 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E7956231CCD6200B393B2 /* UIFont+Extensions.swift */; };
+		3B5E795A231CF63600B393B2 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E7959231CF63600B393B2 /* ProductDetailsViewController.swift */; };
+		3B5E795C231CF64D00B393B2 /* ProductDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E795B231CF64D00B393B2 /* ProductDetailsViewController.storyboard */; };
+		3B5E795E231CFE5C00B393B2 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E795D231CFE5C00B393B2 /* ProductDetailsViewModel.swift */; };
 		3B6A9F50231A235000A4F90E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A9F4F231A235000A4F90E /* AppDelegate.swift */; };
 		3B6A9F52231A235000A4F90E /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A9F51231A235000A4F90E /* ProductsListViewController.swift */; };
 		3B6A9F55231A235000A4F90E /* ProductsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A9F53231A235000A4F90E /* ProductsListViewController.storyboard */; };
@@ -59,9 +65,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B2D0393231D55E700E19268 /* ImageSlideshow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageSlideshow.framework; path = Carthage/Build/iOS/ImageSlideshow.framework; sourceTree = "<group>"; };
+		3B2D0395231D5DB500E19268 /* AlamofireSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSource.swift; sourceTree = "<group>"; };
+		3B2D0398231D696D00E19268 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3B5E7952231CC9AB00B393B2 /* NumberFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		3B5E7954231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		3B5E7956231CCD6200B393B2 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		3B5E7959231CF63600B393B2 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		3B5E795B231CF64D00B393B2 /* ProductDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetailsViewController.storyboard; sourceTree = "<group>"; };
+		3B5E795D231CFE5C00B393B2 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		3B6A9F4C231A235000A4F90E /* Product Discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Product Discovery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6A9F4F231A235000A4F90E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6A9F51231A235000A4F90E /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6A9F7A231A306600A4F90E /* RxCocoa.framework in Frameworks */,
+				3B2D0394231D55E700E19268 /* ImageSlideshow.framework in Frameworks */,
 				3B6A9F7B231A306600A4F90E /* Alamofire.framework in Frameworks */,
 				3B6A9F7C231A306600A4F90E /* AlamofireImage.framework in Frameworks */,
 				3B6A9F7D231A306600A4F90E /* RxSwift.framework in Frameworks */,
@@ -141,6 +154,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2D0397231D5DFD00E19268 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D0395231D5DB500E19268 /* AlamofireSource.swift */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		3B5E7958231CF61700B393B2 /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E7959231CF63600B393B2 /* ProductDetailsViewController.swift */,
+				3B5E795B231CF64D00B393B2 /* ProductDetailsViewController.storyboard */,
+				3B5E795D231CFE5C00B393B2 /* ProductDetailsViewModel.swift */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
 		3B6A9F43231A235000A4F90E = {
 			isa = PBXGroup;
 			children = (
@@ -165,11 +196,13 @@
 		3B6A9F4E231A235000A4F90E /* Product Discovery */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D0397231D5DFD00E19268 /* Vendors */,
 				3B75BC17231C02CD00BEB485 /* fonts */,
 				3B6A9FB1231A561200A4F90E /* Common */,
 				3B6A9FAD231A549600A4F90E /* Model */,
 				3B6A9FA8231A524C00A4F90E /* Managers */,
 				3B6A9FA6231A520400A4F90E /* Base */,
+				3B5E7958231CF61700B393B2 /* ProductDetails */,
 				3B6A9FA7231A521B00A4F90E /* Product */,
 				3B6A9F4F231A235000A4F90E /* AppDelegate.swift */,
 				3B6A9F59231A235100A4F90E /* Assets.xcassets */,
@@ -192,6 +225,7 @@
 		3B6A9F73231A306600A4F90E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D0393231D55E700E19268 /* ImageSlideshow.framework */,
 				3B6A9F75231A306600A4F90E /* Alamofire.framework */,
 				3B6A9F76231A306600A4F90E /* AlamofireImage.framework */,
 				3B6A9F74231A306600A4F90E /* RxCocoa.framework */,
@@ -301,6 +335,7 @@
 				3B5E7952231CC9AB00B393B2 /* NumberFormatter+Extensions.swift */,
 				3B5E7954231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift */,
 				3B5E7956231CCD6200B393B2 /* UIFont+Extensions.swift */,
+				3B2D0398231D696D00E19268 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,6 +475,7 @@
 				3B6A9F5D231A235100A4F90E /* LaunchScreen.storyboard in Resources */,
 				3B6A9F5A231A235100A4F90E /* Assets.xcassets in Resources */,
 				3B75BC1B231C02EE00BEB485 /* SFProText-Regular.otf in Resources */,
+				3B5E795C231CF64D00B393B2 /* ProductDetailsViewController.storyboard in Resources */,
 				3B75BC1C231C02EE00BEB485 /* SFProText-Semibold.otf in Resources */,
 				3B6A9F55231A235000A4F90E /* ProductsListViewController.storyboard in Resources */,
 			);
@@ -476,6 +512,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Sync.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ImageSlideshow.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputFileListPaths = (
@@ -520,7 +557,10 @@
 				3B7135DE231B5F2E001637D0 /* BaseViewModel.swift in Sources */,
 				3B6A9FB0231A54B900A4F90E /* InternalAPIComponents.swift in Sources */,
 				3B6A9FB5231A564F00A4F90E /* Identifiable.swift in Sources */,
+				3B2D0396231D5DB500E19268 /* AlamofireSource.swift in Sources */,
+				3B5E795A231CF63600B393B2 /* ProductDetailsViewController.swift in Sources */,
 				3B75FEA7231AC0200040E8A0 /* Product+CoreDataClass.swift in Sources */,
+				3B5E795E231CFE5C00B393B2 /* ProductDetailsViewModel.swift in Sources */,
 				3B6A9FBF231A5BF900A4F90E /* ProductManager.swift in Sources */,
 				3B5E7953231CC9AB00B393B2 /* NumberFormatter+Extensions.swift in Sources */,
 				3B7135E9231BB723001637D0 /* UIViewController+Extensions.swift in Sources */,
@@ -531,6 +571,7 @@
 				3B6A9FB7231A572900A4F90E /* Result.swift in Sources */,
 				3B6A9FBD231A5B9800A4F90E /* NSManagedObject+Extensions.swift in Sources */,
 				3B5E7955231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift in Sources */,
+				3B2D0399231D696D00E19268 /* UIView+Extensions.swift in Sources */,
 				3B7135E5231BB61C001637D0 /* UITableView+Extensions.swift in Sources */,
 				3B7135E3231B6637001637D0 /* UIImage+Extensions.swift in Sources */,
 				3B7135E7231BB6B3001637D0 /* ProductCell.swift in Sources */,
@@ -712,7 +753,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Product Discovery/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -735,7 +776,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Product Discovery/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

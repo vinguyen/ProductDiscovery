@@ -26,5 +26,17 @@ extension Product {
     @NSManaged public var sku: String
     @NSManaged public var totalAvailable: Int16
     @NSManaged public var id: Int64
+    
+    var hasDiscount: Bool {
+        return discountPrice != 0 && discountPrice < price
+    }
+    
+    var formattedDiscountPrice: String {
+        return NumberFormatter.localizedFormattedNumber(from: discountPrice) + " đ"
+    }
+    
+    var formattedSalePrice: String {
+        return NumberFormatter.localizedFormattedNumber(from: price)
+    }
 
 }

@@ -39,20 +39,20 @@ class ProductCell: UITableViewCell {
         }
         nameLabel.text = productItem.displayName
         
-        if productItem.discountPrice != 0 && productItem.discountPrice < productItem.price {
-            priceLabel.text = NumberFormatter.localizedFormattedNumber(from: productItem.discountPrice) + " đ"
+        if productItem.hasDiscount {
+            priceLabel.text = productItem.formattedDiscountPrice
             discountView.isHidden = false
             let salePriceAttributedString = NSMutableAttributedString(
-                string: NumberFormatter.localizedFormattedNumber(from: productItem.price)
+                string: productItem.formattedSalePrice
             )
             salePriceAttributedString
-                .setRegular(for: NumberFormatter.localizedFormattedNumber(from: productItem.price), ofSize: 12)
-                .setStrikeThrough(for: NumberFormatter.localizedFormattedNumber(from: productItem.price))
+                .setRegular(for: productItem.formattedSalePrice, ofSize: 12)
+                .setStrikeThrough(for: productItem.formattedSalePrice)
             discountPriceLabel.attributedText = salePriceAttributedString
             let discountPercent = (productItem.price - productItem.discountPrice) /  productItem.price
             discountPricePercentLabel.text = "\(discountPercent) %"
         } else {
-            priceLabel.text = NumberFormatter.localizedFormattedNumber(from: productItem.price) + " đ"
+            priceLabel.text = productItem.formattedSalePrice + " đ"
             discountView.isHidden = true
         }
     }
