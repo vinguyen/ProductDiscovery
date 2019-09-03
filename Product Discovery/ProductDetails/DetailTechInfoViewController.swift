@@ -30,7 +30,8 @@ class DetailTechInfoViewController: UIViewController {
                 guard index <= 3 else { return }
                 if let attributeView = UINib(nibName: "AttributeView", bundle: nil)
                     .instantiate(withOwner: nil, options: nil).first as? AttributeView {
-                    attributeView.updateInfo(with: (element["name"] as? String) ?? "", value: (element["value"] as? String) ?? "")
+                    attributeView.updateInfo(with: (element["name"] as? String) ?? "",
+                                             value: (element["value"] as? String) ?? "")
                     attributeView.frame.size.height = 35.0
                     if index % 2 == 0 {
                         attributeView.setColor()
@@ -52,7 +53,8 @@ class DetailTechInfoViewController: UIViewController {
         viewModel?.productAttributes.value.enumerated().forEach { (index, element) in
             if let attributeView = UINib(nibName: "AttributeView", bundle: nil)
                 .instantiate(withOwner: nil, options: nil).first as? AttributeView {
-                attributeView.updateInfo(with: (element["name"] as? String) ?? "", value: (element["value"] as? String) ?? "")
+                attributeView.updateInfo(with: (element["name"] as? String) ?? "",
+                                         value: (element["value"] as? String) ?? "")
                 attributeView.frame.size.height = 35.0
                 if index % 2 == 0 {
                     attributeView.setColor()

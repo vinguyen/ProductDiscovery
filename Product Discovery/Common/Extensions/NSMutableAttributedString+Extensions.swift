@@ -12,7 +12,9 @@ extension NSMutableAttributedString {
     
     @discardableResult func setStrikeThrough(`for` text: String, color: UIColor = .gray) -> NSMutableAttributedString {
         let range = (self.string as NSString).range(of: text)
-        addAttributes([NSAttributedStringKey.baselineOffset: 0, NSAttributedStringKey.strikethroughStyle:  NSUnderlineStyle.styleSingle.rawValue, NSAttributedStringKey.strikethroughColor: color], range: range)
+        addAttributes([NSAttributedStringKey.baselineOffset: 0,
+                       NSAttributedStringKey.strikethroughStyle:  NSUnderlineStyle.styleSingle.rawValue,
+                       NSAttributedStringKey.strikethroughColor: color], range: range)
         return self
     }
     

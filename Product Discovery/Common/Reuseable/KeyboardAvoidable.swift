@@ -94,7 +94,8 @@ extension KeyboardAvoidable where Self: UIViewController {
             self?.animateLayout(parameters: notificationParameters, animations: {
                 self?.constraintsAndValues?.forEach {
                     if #available(iOS 11.0, *) {
-                        $0.key.constant = notificationParameters.height + $0.value - ( self?.view.safeAreaInsets.bottom ?? 0 )
+                        $0.key.constant =
+                            notificationParameters.height + $0.value - ( self?.view.safeAreaInsets.bottom ?? 0 )
                     } else {
                         $0.key.constant = notificationParameters.height + $0.value
                     }
@@ -142,7 +143,8 @@ extension KeyboardAvoidable where Self: UIViewController {
         duration: TimeInterval,
         animationOptions: UIViewAnimationOptions)
     
-    private func getKeyboardShowParameters(fromNotification notification: Notification) -> KeyboardNotificationParameters? {
+    private func getKeyboardShowParameters(fromNotification notification: Notification)
+        -> KeyboardNotificationParameters? {
         guard let info = notification.userInfo,
             let heightValue = info[UIKeyboardFrameEndUserInfoKey] as? CGRect,
             let durationValue = info[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,

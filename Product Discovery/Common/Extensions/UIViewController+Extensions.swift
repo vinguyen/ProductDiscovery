@@ -9,9 +9,7 @@
 import UIKit
 
 extension UIViewController: Identifiable {
-    func showInfoAlert(_ message: String,
-                          title: String? = nil,
-                          completion: (() -> Void)? = nil) {
+    func showInfoAlert(_ message: String, title: String? = nil, completion: (() -> Void)? = nil) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK",

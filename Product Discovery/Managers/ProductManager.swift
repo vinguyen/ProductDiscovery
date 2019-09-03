@@ -65,7 +65,7 @@ class ProductManagerImpl: ProductManager {
                     if response.code == InternalAPIContants.successCode,
                         let data = response.result as? JSONDictionary,
                         let products = data["products"] as? JSONArray {
-                        let patchedContent = products.enumerated().compactMap { (index, productDict) -> JSONDictionary? in
+                        let patchedContent = products.enumerated().compactMap{(index, productDict) -> JSONDictionary? in
                             guard let productDict = productDict  as? JSONDictionary else { return nil }
                             var patchedProductDict = JSONDictionary()
                             patchedProductDict["id"] = index + (page - 1) * limit

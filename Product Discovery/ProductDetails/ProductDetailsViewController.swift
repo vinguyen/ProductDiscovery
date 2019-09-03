@@ -162,13 +162,16 @@ class ProductDetailsViewController: UIViewController {
     }
 }
 
-extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProductDetailsViewController: UICollectionViewDelegate,
+                                        UICollectionViewDataSource,
+                                        UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.similarProducts.value.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell",
                                                          for: indexPath) as? ProductCollectionViewCell,
             let product = viewModel?.similarProducts.value[safe: indexPath.row] {

@@ -140,9 +140,10 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
         searchBar.resignFirstResponder()
         guard let productItem = viewModel.productItem(at: indexPath),
-            let detailViewController =  UIStoryboard(name: ProductDetailsViewController.identifier,
-                                                     bundle: .main
-                                                    ).instantiateInitialViewController() as? ProductDetailsViewController else { return }
+            let detailViewController =
+            UIStoryboard(name: ProductDetailsViewController.identifier,
+                         bundle: .main
+                        ).instantiateInitialViewController() as? ProductDetailsViewController else { return }
         let productDetailsViewModel = ProductDetailsViewModel(
                                         productManager: ManagerProvider.sharedInstance.productManager,
                                         dataManager: ManagerProvider.sharedInstance.dataManager,

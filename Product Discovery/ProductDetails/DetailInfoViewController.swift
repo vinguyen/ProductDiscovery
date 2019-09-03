@@ -71,7 +71,8 @@ class DetailInfoViewController: SwipeMenuViewController {
         return menus[index]
     }
     
-    override func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
+    override func swipeMenuView(_ swipeMenuView: SwipeMenuView,
+                                viewControllerForPageAt index: Int) -> UIViewController {
         let vc = childViewControllers[index]
         vc.didMove(toParentViewController: self)
         return vc
