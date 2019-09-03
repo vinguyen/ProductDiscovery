@@ -164,6 +164,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YhD-kV-cRM"/>
                     <connections>
+                        <outlet property="keyboardConstraint" destination="CtJ-f5-4yx" id="GSS-0f-NOl"/>
                         <outlet property="loadingIndicator" destination="4gb-bj-vYc" id="Aya-Fs-YFa"/>
                         <outlet property="tableView" destination="m14-H6-MFb" id="vJl-lf-ORY"/>
                         <segue destination="BMz-No-FMm" kind="show" identifier="ProductDetailsViewController" id="oo7-At-OeH"/>

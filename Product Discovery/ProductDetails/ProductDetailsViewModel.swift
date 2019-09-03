@@ -23,6 +23,7 @@ class ProductDetailsViewModel: BaseViewModel {
     var discountPrice: Driver<String?> { return _discountPrice.asDriver(onErrorJustReturn: nil)}
     var salePrice: Driver<NSMutableAttributedString?> { return _salePrice.asDriver(onErrorJustReturn: nil)}
     var precentDiscount: Driver<String?> { return _precentDiscount.asDriver(onErrorJustReturn: nil)}
+    var currentProductItem = Variable<Product?>(nil)
     
     private let productManager: ProductManager
     private let dataManager: DataManager
@@ -45,6 +46,7 @@ class ProductDetailsViewModel: BaseViewModel {
         
         if productItem.attributeGroups != nil {
             updateUI(with: productItem)
+            currentProductItem.value = productItem
         } else {
             _isLoading.value = true
             productManager.fetchProductDetails(productItem: productItem).subscribe(onCompleted: { [weak self] in
@@ -56,6 +58,7 @@ class ProductDetailsViewModel: BaseViewModel {
                 productFetchRequest.returnsObjectsAsFaults = false
                 if let objects = try? self?.dataManager.dataStack.mainContext.fetch(productFetchRequest),
                     let object = objects?.first {
+                    self?.currentProductItem.value = object
                     self?.updateUI(with: object)
                 }
             }).disposed(by: disposeBag)

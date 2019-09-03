@@ -10,10 +10,11 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ProductsListViewController: UIViewController {
+class ProductsListViewController: UIViewController, KeyboardAvoidable {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var keyboardConstraint: NSLayoutConstraint!
     
     private let viewModel: ProductsListViewModel = ProductsListViewModel(
         productManager: ManagerProvider.sharedInstance.productManager,
@@ -33,6 +34,7 @@ class ProductsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addKeyboardObservers(forConstraints: [keyboardConstraint])
         navigationItem.titleView = searchBar
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
@@ -101,6 +103,11 @@ class ProductsListViewController: UIViewController {
         extendedLayoutIncludesOpaqueBars = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardObservers()
+    }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -131,6 +138,7 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        searchBar.resignFirstResponder()
         guard let productItem = viewModel.productItem(at: indexPath),
             let detailViewController =  UIStoryboard(name: ProductDetailsViewController.identifier,
                                                      bundle: .main

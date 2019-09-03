@@ -43,4 +43,5 @@ struct Gradient {
 
 struct Color {
     static let deepSkyBlue = UIColor(red: 30/255, green: 117/255, blue: 246/255,alpha: 1.0)
+    static let coolGray = UIColor(red: 238/255, green: 241/255, blue: 243/255,alpha: 1.0)
 }

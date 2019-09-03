@@ -112,6 +112,16 @@ class ProductDetailsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel?
+            .currentProductItem
+            .asObservable()
+            .subscribe(onNext: {[weak self] product in
+                guard let product = product,
+                    let VC = self?.childViewControllers.first as? DetailInfoViewController else { return }
+                VC.setup(with: DetailInfoViewModel(productItem: product))
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +135,13 @@ class ProductDetailsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == DetailInfoViewController.identifier,
+            let destionationVC = segue.destination as? DetailInfoViewController {
+            destionationVC.view.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
 
     func setup(with viewModel: ProductDetailsViewModel) {

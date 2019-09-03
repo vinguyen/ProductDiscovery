@@ -52,6 +52,17 @@
 		3B75BC1F231C068600BEB485 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B75BC1E231C068600BEB485 /* Collection+Extensions.swift */; };
 		3B75FEA7231AC0200040E8A0 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B75FEA5231AC0200040E8A0 /* Product+CoreDataClass.swift */; };
 		3B75FEA8231AC0200040E8A0 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B75FEA6231AC0200040E8A0 /* Product+CoreDataProperties.swift */; };
+		D9286C67231E2085006BDF61 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C66231E2085006BDF61 /* DetailInfoViewController.swift */; };
+		D9286C70231E34D0006BDF61 /* DetailTechInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C6F231E34D0006BDF61 /* DetailTechInfoViewController.swift */; };
+		D9286C72231E3F41006BDF61 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9286C71231E3F41006BDF61 /* SwipeMenuViewController.framework */; };
+		D9286C74231E531E006BDF61 /* DetailDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C73231E531E006BDF61 /* DetailDescriptionViewController.swift */; };
+		D9286C76231E532D006BDF61 /* DetailComparePriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C75231E532D006BDF61 /* DetailComparePriceViewController.swift */; };
+		D9286C78231E5EF4006BDF61 /* DetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C77231E5EF4006BDF61 /* DetailInfoViewModel.swift */; };
+		D9286C7A231E60CC006BDF61 /* DetailTechInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C79231E60CC006BDF61 /* DetailTechInfoViewModel.swift */; };
+		D9286C7C231E6A4D006BDF61 /* AttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C7B231E6A4D006BDF61 /* AttributeView.swift */; };
+		D9286C7E231E6AC3006BDF61 /* AttributeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9286C7D231E6AC2006BDF61 /* AttributeView.xib */; };
+		D9286C80231E7277006BDF61 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C7F231E7277006BDF61 /* UIStackView+Extensions.swift */; };
+		D9286C82231E79CB006BDF61 /* KeyboardAvoidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9286C81231E79CB006BDF61 /* KeyboardAvoidable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +131,17 @@
 		3B75BC1E231C068600BEB485 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		3B75FEA5231AC0200040E8A0 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3B75FEA6231AC0200040E8A0 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D9286C66231E2085006BDF61 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
+		D9286C6F231E34D0006BDF61 /* DetailTechInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTechInfoViewController.swift; sourceTree = "<group>"; };
+		D9286C71231E3F41006BDF61 /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeMenuViewController.framework; path = Carthage/Build/iOS/SwipeMenuViewController.framework; sourceTree = "<group>"; };
+		D9286C73231E531E006BDF61 /* DetailDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionViewController.swift; sourceTree = "<group>"; };
+		D9286C75231E532D006BDF61 /* DetailComparePriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComparePriceViewController.swift; sourceTree = "<group>"; };
+		D9286C77231E5EF4006BDF61 /* DetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewModel.swift; sourceTree = "<group>"; };
+		D9286C79231E60CC006BDF61 /* DetailTechInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTechInfoViewModel.swift; sourceTree = "<group>"; };
+		D9286C7B231E6A4D006BDF61 /* AttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeView.swift; sourceTree = "<group>"; };
+		D9286C7D231E6AC2006BDF61 /* AttributeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeView.xib; sourceTree = "<group>"; };
+		D9286C7F231E7277006BDF61 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		D9286C81231E79CB006BDF61 /* KeyboardAvoidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoidable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6A9F7A231A306600A4F90E /* RxCocoa.framework in Frameworks */,
+				D9286C72231E3F41006BDF61 /* SwipeMenuViewController.framework in Frameworks */,
 				3B2D0394231D55E700E19268 /* ImageSlideshow.framework in Frameworks */,
 				3B6A9F7B231A306600A4F90E /* Alamofire.framework in Frameworks */,
 				3B6A9F7C231A306600A4F90E /* AlamofireImage.framework in Frameworks */,
@@ -168,6 +191,14 @@
 				3B5E7959231CF63600B393B2 /* ProductDetailsViewController.swift */,
 				3B5E795B231CF64D00B393B2 /* ProductDetailsViewController.storyboard */,
 				3B5E795D231CFE5C00B393B2 /* ProductDetailsViewModel.swift */,
+				D9286C66231E2085006BDF61 /* DetailInfoViewController.swift */,
+				D9286C77231E5EF4006BDF61 /* DetailInfoViewModel.swift */,
+				D9286C6F231E34D0006BDF61 /* DetailTechInfoViewController.swift */,
+				D9286C79231E60CC006BDF61 /* DetailTechInfoViewModel.swift */,
+				D9286C73231E531E006BDF61 /* DetailDescriptionViewController.swift */,
+				D9286C75231E532D006BDF61 /* DetailComparePriceViewController.swift */,
+				D9286C7B231E6A4D006BDF61 /* AttributeView.swift */,
+				D9286C7D231E6AC2006BDF61 /* AttributeView.xib */,
 			);
 			path = ProductDetails;
 			sourceTree = "<group>";
@@ -225,6 +256,7 @@
 		3B6A9F73231A306600A4F90E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9286C71231E3F41006BDF61 /* SwipeMenuViewController.framework */,
 				3B2D0393231D55E700E19268 /* ImageSlideshow.framework */,
 				3B6A9F75231A306600A4F90E /* Alamofire.framework */,
 				3B6A9F76231A306600A4F90E /* AlamofireImage.framework */,
@@ -336,6 +368,8 @@
 				3B5E7954231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift */,
 				3B5E7956231CCD6200B393B2 /* UIFont+Extensions.swift */,
 				3B2D0398231D696D00E19268 /* UIView+Extensions.swift */,
+				D9286C7F231E7277006BDF61 /* UIStackView+Extensions.swift */,
+				D9286C81231E79CB006BDF61 /* KeyboardAvoidable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -472,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B75BC1D231C02EE00BEB485 /* SFProText-Light.otf in Resources */,
+				D9286C7E231E6AC3006BDF61 /* AttributeView.xib in Resources */,
 				3B6A9F5D231A235100A4F90E /* LaunchScreen.storyboard in Resources */,
 				3B6A9F5A231A235100A4F90E /* Assets.xcassets in Resources */,
 				3B75BC1B231C02EE00BEB485 /* SFProText-Regular.otf in Resources */,
@@ -513,6 +548,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ImageSlideshow.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwipeMenuViewController.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputFileListPaths = (
@@ -548,7 +584,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9286C82231E79CB006BDF61 /* KeyboardAvoidable.swift in Sources */,
 				3B6A9FAC231A52BE00A4F90E /* InternalAPIControlManager.swift in Sources */,
+				D9286C7C231E6A4D006BDF61 /* AttributeView.swift in Sources */,
+				D9286C80231E7277006BDF61 /* UIStackView+Extensions.swift in Sources */,
 				3B6A9FBB231A596F00A4F90E /* DataManager.swift in Sources */,
 				3B6A9F52231A235000A4F90E /* ProductsListViewController.swift in Sources */,
 				3B75BC1F231C068600BEB485 /* Collection+Extensions.swift in Sources */,
@@ -557,7 +596,9 @@
 				3B7135DE231B5F2E001637D0 /* BaseViewModel.swift in Sources */,
 				3B6A9FB0231A54B900A4F90E /* InternalAPIComponents.swift in Sources */,
 				3B6A9FB5231A564F00A4F90E /* Identifiable.swift in Sources */,
+				D9286C76231E532D006BDF61 /* DetailComparePriceViewController.swift in Sources */,
 				3B2D0396231D5DB500E19268 /* AlamofireSource.swift in Sources */,
+				D9286C78231E5EF4006BDF61 /* DetailInfoViewModel.swift in Sources */,
 				3B5E795A231CF63600B393B2 /* ProductDetailsViewController.swift in Sources */,
 				3B75FEA7231AC0200040E8A0 /* Product+CoreDataClass.swift in Sources */,
 				3B5E795E231CFE5C00B393B2 /* ProductDetailsViewModel.swift in Sources */,
@@ -567,8 +608,11 @@
 				3B5E7957231CCD6200B393B2 /* UIFont+Extensions.swift in Sources */,
 				3B6A9FAA231A527600A4F90E /* ManagerProvider.swift in Sources */,
 				3B75FEA8231AC0200040E8A0 /* Product+CoreDataProperties.swift in Sources */,
+				D9286C70231E34D0006BDF61 /* DetailTechInfoViewController.swift in Sources */,
 				3B7135E1231B6302001637D0 /* Styles.swift in Sources */,
+				D9286C7A231E60CC006BDF61 /* DetailTechInfoViewModel.swift in Sources */,
 				3B6A9FB7231A572900A4F90E /* Result.swift in Sources */,
+				D9286C74231E531E006BDF61 /* DetailDescriptionViewController.swift in Sources */,
 				3B6A9FBD231A5B9800A4F90E /* NSManagedObject+Extensions.swift in Sources */,
 				3B5E7955231CCC5500B393B2 /* NSMutableAttributedString+Extensions.swift in Sources */,
 				3B2D0399231D696D00E19268 /* UIView+Extensions.swift in Sources */,
@@ -577,6 +621,7 @@
 				3B7135E7231BB6B3001637D0 /* ProductCell.swift in Sources */,
 				3B6A9F50231A235000A4F90E /* AppDelegate.swift in Sources */,
 				3B7135DC231B5F18001637D0 /* ProductsListViewModel.swift in Sources */,
+				D9286C67231E2085006BDF61 /* DetailInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
