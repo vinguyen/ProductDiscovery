@@ -24,6 +24,7 @@ class ProductDetailsViewModel: BaseViewModel {
     var salePrice: Driver<NSMutableAttributedString?> { return _salePrice.asDriver(onErrorJustReturn: nil)}
     var precentDiscount: Driver<String?> { return _precentDiscount.asDriver(onErrorJustReturn: nil)}
     var currentProductItem = Variable<Product?>(nil)
+    var similarProducts = Variable<[Product]>([])
     
     private let productManager: ProductManager
     private let dataManager: DataManager
@@ -44,6 +45,7 @@ class ProductDetailsViewModel: BaseViewModel {
         self.dataManager = dataManager
         super.init()
         
+        let productFetchRequest = NSFetchRequest<Product>(entityName: Product.entityName)
         if productItem.attributeGroups != nil {
             updateUI(with: productItem)
             currentProductItem.value = productItem
@@ -51,8 +53,7 @@ class ProductDetailsViewModel: BaseViewModel {
             _isLoading.value = true
             productManager.fetchProductDetails(productItem: productItem).subscribe(onCompleted: { [weak self] in
                 self?._isLoading.value = false
-                let productFetchRequest = NSFetchRequest<Product>(entityName: Product.entityName)
-                productFetchRequest.predicate = NSPredicate(format: "sku == \(productItem.sku)")
+                productFetchRequest.predicate = NSPredicate(format: "sku == %@", productItem.sku)
                 productFetchRequest.fetchLimit = 1
                 productFetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
                 productFetchRequest.returnsObjectsAsFaults = false
@@ -63,6 +64,17 @@ class ProductDetailsViewModel: BaseViewModel {
                 }
             }).disposed(by: disposeBag)
         }
+        
+        if let category = productItem.categorieName {
+            productFetchRequest.predicate = NSPredicate(format: "categorieName == %@", category)
+            productFetchRequest.fetchLimit = 10
+            productFetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+            productFetchRequest.returnsObjectsAsFaults = false
+            if let objects = try? dataManager.dataStack.mainContext.fetch(productFetchRequest) {
+                similarProducts.value = objects
+            }
+        }
+
     }
     
     private func updateUI(with productItem: Product) {
@@ -99,4 +111,6 @@ class ProductDetailsViewModel: BaseViewModel {
             _precentDiscount.onNext(nil)
         }
     }
+    
+    
 }

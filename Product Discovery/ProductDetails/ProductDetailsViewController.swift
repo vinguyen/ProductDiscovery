@@ -24,6 +24,8 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet private weak var discountPriceLabel: UILabel!
     @IBOutlet private weak var salePriceLabel: UILabel!
     @IBOutlet private weak var percentDiscountLabel: UILabel!
+    @IBOutlet private weak var similarProductsCollectionView: UICollectionView!
+    @IBOutlet private weak var checkoutButton: UIButton!
     
     private var viewModel: ProductDetailsViewModel?
     private let disposeBag = DisposeBag()
@@ -122,6 +124,16 @@ class ProductDetailsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel?
+            .similarProducts
+            .asObservable()
+            .subscribe(onNext: {[weak self] _ in
+                self?.similarProductsCollectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        checkoutButton.setBackgroundImage(Gradient.main, for: .normal)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,6 +143,7 @@ class ProductDetailsViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .default
         extendedLayoutIncludesOpaqueBars = true
         navigationController?.navigationBar.tintColor = .black
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -146,5 +159,36 @@ class ProductDetailsViewController: UIViewController {
 
     func setup(with viewModel: ProductDetailsViewModel) {
         self.viewModel = viewModel
+    }
+}
+
+extension ProductDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.similarProducts.value.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell",
+                                                         for: indexPath) as? ProductCollectionViewCell,
+            let product = viewModel?.similarProducts.value[safe: indexPath.row] {
+            cell.update(with: product)
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let productItem = viewModel?.similarProducts.value[safe: indexPath.row],
+            let detailViewController =  UIStoryboard(name: ProductDetailsViewController.identifier,
+                                                     bundle: .main
+                ).instantiateInitialViewController() as? ProductDetailsViewController else { return }
+        let productDetailsViewModel = ProductDetailsViewModel(
+            productManager: ManagerProvider.sharedInstance.productManager,
+            dataManager: ManagerProvider.sharedInstance.dataManager,
+            productItem: productItem
+        )
+        detailViewController.setup(with: productDetailsViewModel)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
