@@ -38,5 +38,35 @@ extension Product {
     var formattedSalePrice: String {
         return NumberFormatter.localizedFormattedNumber(from: price)
     }
+    
+    var listImageURLs: [String] {
+        if let imagesData = images as Data?,
+            let images = NSKeyedUnarchiver.unarchiveObject(with: imagesData) as? JSONArray {
+            return images.compactMap { return ($0 as? JSONDictionary)?["url"] as? String }
+        }
+        return []
+    }
+    
+    var listAttributes: [ProductAttribute] {
+        if let attributesData = attributeGroups as Data? {
+            do {
+                let jsonDecoded = try JSONDecoder().decode([ProductAttribute].self, from: attributesData)
+                return jsonDecoded
+            } catch {
+                return []
+            }
+        }
+        return []
+    }
+    
+    var representImageURL: URL? {
+        if let imagesData = images as Data?,
+            let images = NSKeyedUnarchiver.unarchiveObject(with: imagesData) as? JSONArray,
+            let imageURLString = (images.first as? JSONDictionary)?["url"] as? String,
+            let imageURL = URL(string: imageURLString) {
+            return imageURL
+        }
+        return nil
+    }
 
 }

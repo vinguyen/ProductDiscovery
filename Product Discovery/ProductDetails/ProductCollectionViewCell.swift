@@ -24,10 +24,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     func update(with productItem: Product) {
         productImageView.af_cancelImageRequest()
         productImageView.image = #imageLiteral(resourceName: "defaultProductImage")
-        if let imagesData = productItem.images as Data?,
-            let images = NSKeyedUnarchiver.unarchiveObject(with: imagesData) as? JSONArray,
-            let imageURLString = (images.first as? JSONDictionary)?["url"] as? String,
-            let imageURL = URL(string: imageURLString) {
+        if let imageURL = productItem.representImageURL {
             productImageView.af_setImage(withURL: imageURL, placeholderImage: #imageLiteral(resourceName: "defaultProductImage"))
         }
         nameLabel.text = productItem.displayName

@@ -51,7 +51,10 @@ class ProductDetailsViewModel: BaseViewModel {
             currentProductItem.value = productItem
         } else {
             _isLoading.value = true
-            productManager.fetchProductDetails(productItem: productItem).subscribe(onCompleted: { [weak self] in
+            productManager.fetchProductDetails(productItem: productItem).subscribe(onError: { [weak self] error in
+                self?._isLoading.value = false
+                self?._errorMessage.onNext(error.localizedDescription)
+            }, onCompleted: { [weak self] in
                 self?._isLoading.value = false
                 productFetchRequest.predicate = NSPredicate(format: "sku == %@", productItem.sku)
                 productFetchRequest.fetchLimit = 1
@@ -82,10 +85,7 @@ class ProductDetailsViewModel: BaseViewModel {
         _productPrice.onNext(
             productItem.hasDiscount ? productItem.formattedDiscountPrice : productItem.formattedSalePrice + " đ"
         )
-        if let imagesData = productItem.images as Data?,
-            let images = NSKeyedUnarchiver.unarchiveObject(with: imagesData) as? JSONArray {
-            _imagesURL.onNext(images.compactMap{ return ($0 as? JSONDictionary)?["url"] as? String})
-        }
+        _imagesURL.onNext(productItem.listImageURLs)
         let productCodeAttributedString = NSMutableAttributedString(
             string: "Mã SP: " + productItem.sku
         )

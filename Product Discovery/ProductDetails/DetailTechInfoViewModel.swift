@@ -12,13 +12,10 @@ import RxCocoa
 
 class DetailTechInfoViewModel: BaseViewModel {
     
-    var productAttributes = Variable<[JSONDictionary]>([])
+    var productAttributes = Variable<[ProductAttribute]>([])
     
     init(productItem: Product) {
         super.init()
-        if let attributesData = productItem.attributeGroups as Data?,
-            let attributes = NSKeyedUnarchiver.unarchiveObject(with: attributesData) as? JSONArray {
-            self.productAttributes.value = attributes.compactMap { return ($0 as? JSONDictionary) }
-        }
+        productAttributes.value = productItem.listAttributes
     }
 }

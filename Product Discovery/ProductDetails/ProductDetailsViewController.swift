@@ -132,6 +132,16 @@ class ProductDetailsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel?
+            .errorMessage
+            .drive(
+                onNext: { [weak self] message in
+                    guard let message = message else { return }
+                    self?.showInfoAlert(message)
+                }
+            )
+            .disposed(by: disposeBag)
+        
         checkoutButton.setBackgroundImage(Gradient.main, for: .normal)
         
     }
